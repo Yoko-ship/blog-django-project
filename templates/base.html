@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/second.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'main/handler.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <ul>
+            <a href="/main/"><li>Меню</li></a>
+            <a href="/main/add/"><li>Добавить заметки</li></a>
+            {% if user.is_authenticated %}
+            <a href="/main/accounts/profile"><li>user: {{user.get_username}}</li></a>
+            <form method="post" action="{% url 'main:logout' %}" class="leave-form">
+                {% csrf_token %}
+                <button type="submit" class="leave"><li>Выйти</li></button>
+            </form>
+            {% else%}
+            <a href="/main/accounts/login"><li>Авторизация</li></a>
+            {%endif%}
+        </ul>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

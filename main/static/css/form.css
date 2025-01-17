@@ -1,0 +1,66 @@
+
+.old{
+    padding-bottom: 10px;
+}
+.edit{
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+        width: 20%;
+        
+}
+
+.form-div{
+    padding-top: 10px;
+}
+
+.ed-form input{
+    padding: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    gap: 10px;
+}
+.ed-form button{
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: green;
+        color: white;
+        cursor: pointer;
+}
+.ed-form div{
+    padding-top: 10px;
+}
+
+.info{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+header{
+    background-color: #0E0E0F;
+    padding: 10px;
+    color: white;
+}
+header ul{
+    display: flex;
+    justify-content: space-between;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
+header li{
+    list-style: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+header li:hover{
+    transform: scale(1.1);
+}

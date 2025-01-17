@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{%block content%}
+{% if latest_notes %}
+    <div class="search">
+        <input type="search" name="search" class="search-input">
+    </div>
+    <div>
+        <form method="post" action="{% url 'main:index' %}">
+            {% csrf_token %}
+            <button type="submit">Сортировать</button>
+        </form>
+    </div>
+    <div class="grids">
+        {% for note in latest_notes %}
+        <div class="grid">
+            <p>Data:{{ note.pub_date }}</p>
+            <a href="/main/{{note.id}}" style="text-decoration: none; color:green"><span class="test">Title:{{ note.title}}</span></a>
+            <p>Content:{{ note.content }}</p>
+            <div class="ap-div">
+                <form method="post" action="{% url 'main:delete' note.id %}" class="old">
+                    {% csrf_token %}
+                    <button class="del" type="submit">Delete</button>
+                </form>
+                <button class="edit">Edit</button>
+                <div class="form-div">
+                    <form method="post" action="{% url 'main:edit' note.id %}" class="ed-form" style="display: none;">
+                        {% csrf_token %}
+                        <input type="text" name="title" id="title" placeholder="Title">
+                        <input type="text" name="content" placeholder="Content">
+                        <div>
+                            <button class="confirm">Подтвердить</button>
+                        </div>
+                        
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {%else%}
+        <p>Нет данных</p>
+{%endif%}
+{%endblock%}

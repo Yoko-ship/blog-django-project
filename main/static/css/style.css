@@ -1,0 +1,63 @@
+.form{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+.form p{
+    text-align: center;
+}
+.form label{
+    display: flex;
+    flex-direction: column;
+}
+
+.form input{
+    padding: 10px;
+    text-align: start;
+    outline: none;
+}
+.form button{
+    margin: 0 auto;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+.form button:hover{
+    transform: scale(1.1);
+}
+
+
+.grids{
+    display: grid;
+    grid-template-columns: repeat(4,3fr);
+    gap: 30px;
+    padding-top: 15px;
+}
+.grid{
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.del{
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.search{
+    padding: 10px;
+}
+.search input{
+    outline: none;
+    padding: 8x;
+    font-size: 18px;
+
+}

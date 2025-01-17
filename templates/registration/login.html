@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/second.css' %}">
+</head>
+<body>
+
+    <!--*  Обработка для Login -->
+    {% block content %}
+
+{% if form.errors %}
+    <p class="error">Почта или пароль не совпадает</p>
+{% endif%}
+
+{% if next %}
+
+    {% if user.is_authenticated %}
+        <p>Ваш аккаунт не имеет доступа </p>
+    {% else %}
+        <p style="text-align: center;">Пожалуста войдите в аккаунт чтобы видить страницу</p>
+
+    {% endif %}
+{% endif %}
+
+
+<form method="post" action="{% url 'main:login' %}">
+    {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+
+            <tr>
+                <td>{{ form.useremail.label_tag }}</td>
+                <td>{{ form.useremail }}</td>
+            </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+
+    <button type="submit">Подтвердить</button>
+</form>
+    <!-- <p style="text-align: center;"><a href="{% url 'main:password_reset' %}">Забыл пароль</a></p> -->
+{% endblock %}
+</body>
+</html>
+
